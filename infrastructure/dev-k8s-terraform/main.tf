@@ -147,7 +147,11 @@ EOF
   managed_policy_arns = ["arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"]
 }
 
+<<<<<<< HEAD
 resource "aws_iam_instance_profile" "petclinic-master-server-profile-recep" {
+=======
+resource "aws_iam_instance_profile" "petclinic-master-server-profile" {
+>>>>>>> feature/msp-16
   name = "petclinic-master-server-profile-recep"
   role = aws_iam_role.petclinic-master-server-s3-role.name
 }
@@ -173,7 +177,7 @@ resource "aws_instance" "worker-1" {
     ami = "ami-053b0d53c279acc90"
     instance_type = "t3a.medium"
     vpc_security_group_ids = [aws_security_group.petclinic-kube-worker-sg.id, aws_security_group.petclinic-mutual-sg.id]
-    key_name = "clarus"
+    key_name = "recep"
     subnet_id = "subnet-c41ba589"  # select own subnet_id of us-east-1a
     availability_zone = "us-east-1a"
     tags = {
