@@ -147,9 +147,6 @@ EOF
   managed_policy_arns = ["arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"]
 }
 
-<<<<<<< HEAD
-resource "aws_iam_instance_profile" "petclinic-master-server-profile-recep" {
-=======
 resource "aws_iam_instance_profile" "petclinic-master-server-profile" {
 >>>>>>> feature/msp-16
   name = "petclinic-master-server-profile-recep"
