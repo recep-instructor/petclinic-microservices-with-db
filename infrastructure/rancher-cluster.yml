@@ -1,0 +1,25 @@
+nodes:
+  - address: 172.31.65.194                # Change with the Private Ip of rancher server (stop start edince Public Ip değişiyor, bugün stop edeceğiz o yüzden)
+    internal_address: 172.31.65.194       # Change with the Private Ip of rancher server
+    user: ubuntu
+    role:
+      - controlplane
+      - etcd
+      - worker
+
+# ignore_docker_version: true
+
+services:
+  etcd:
+    snapshot: true
+    creation: 6h
+    retention: 24h
+
+ssh_key_path: ~/.ssh/petclinic-rancher-rcp.pem
+
+# Required for external TLS termination with
+# ingress-nginx v0.22+
+ingress:
+  provider: nginx
+  options:
+    use-forwarded-headers: "true"
